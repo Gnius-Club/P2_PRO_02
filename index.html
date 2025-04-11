@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Sesión 2: ¡Manos al Scratch! – Construyendo el Corazón Interactivo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .header { background-color: #ffa500; color: white; text-align: center; padding: 10px; } /* Orange Accent */
+        .activity { margin-bottom: 20px; }
+        .banner {
+            background-color: #ffa500; /* Orange Accent */
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+            list-style: none;
+            display: block;
+        }
+        .content { display: none; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            vertical-align: top;
+        }
+        span[style*="color: red;"] {
+            font-weight: bold;
+        }
+         ul, ol {
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .time-title { margin-bottom: 20px; text-align: center; font-size: 1.2em; color: #555;}
+
+        summary {
+           display: block;
+           list-style: none;
+        }
+        summary::-webkit-details-marker {
+           display: none;
+        }
+
+    </style>
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            if (content) {
+                if (content.style.display === "none" || content.style.display === "") {
+                    content.style.display = "block";
+                } else {
+                    content.style.display = "none";
+                }
+            }
+        }
+
+        window.onload = () => {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+        };
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Playbook - Sesión 2: ¡Manos al Scratch! – Construyendo el Corazón Interactivo</h1>
+    </div>
+    <div class="container">
+        <h2 class="time-title">Tiempo efectivo de clase: 40 minutos</h2>
+
+        <!-- Resumen de Sesión -->
+        <div id="activity-0" class="activity">
+            <div class="banner" onclick="toggleContent('activity_0_content')">
+                <div class="title">📝 Resumen de Sesión</div>
+            </div>
+            <div id="activity_0_content" class="content">
+                <table>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid #ddd;">
+                            <strong>🎯 Objetivo de la Sesión:</strong>
+                            <ul>
+                                <li>Avanzar significativamente en la programación del Prototipo Funcional Básico (interacción central definida en Sesión 1) en Scratch.</li>
+                                <li>Utilizar el tablero Kanban para gestionar el flujo de trabajo del equipo.</li>
+                                <li>Practicar la colaboración entre roles técnicos (Arquitecto, Programador, Tester).</li>
+                            </ul>
+                            <strong>⏱️ Duración Estimada:</strong> 40 minutos.
+                        </td>
+                        <td style="width: 50%; padding: 10px;">
+                            <strong>🔑 Entregable Clave:</strong>
+                            <ul>
+                                <li>Progreso visible en el proyecto Scratch del equipo, enfocado en la tarea(s) de la columna "Haciendo".</li>
+                                <li>Tablero Kanban actualizado reflejando el estado de las tareas (idealmente, la primera tarea movida a "Listo para Probar" o incluso a "¡Listo!").</li>
+                                <li>Experiencia práctica de trabajo colaborativo con roles definidos.</li>
+                            </ul>
+                             <strong>🛠️ Materiales/Preparación:</strong>
+                            <ul>
+                                <li>Dispositivos (PCs/Tablets) con acceso a Scratch para cada equipo.</li>
+                                <li>Tablero Kanban de cada equipo (físico o digital) con el backlog creado en Sesión 1.</li>
+                                <li>Acceso al T-Bar y a la definición del Prototipo Funcional Básico de cada equipo.</li>
+                                <li>Proyector o pantalla.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Desarrollo de la Sesión -->
+
+        <!-- Actividad 1: ¡Check-in de Código! Stand-up Técnico -->
+        <div id="activity-1" class="activity">
+             <div class="banner" onclick="toggleContent('activity_1_content')">
+                <div class="title">🚦 Actividad 1: ¡Check-in de Código! Stand-up Técnico ⏰ Tiempo: 5 minutos</div>
+             </div>
+            <div id="activity_1_content" class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Acción</th>
+                            <th style="width: 50%;">Diálogo del Maestro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Paso 1 (1 min):</strong> Reunir a los equipos frente a sus tableros Kanban.
+                                (<strong>Proyectar Diapositiva 1:</strong> Título "Sesión 2: ¡Manos al Scratch!" y Objetivo del día).
+                            </td>
+                            <td>
+                                "¡Buenos días, equipos de programadores! ¡Hoy es el día de darle vida a esas ideas en Scratch! Vamos a empezar con nuestro 'Stand-up Técnico' rápido frente a sus tableros Kanban."
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Paso 2 (4 min):</strong> Guiar el stand-up. Cada equipo (puede hablar el Arquitecto/a o todos brevemente) comparte frente a su Kanban.
+                                (<strong>Proyectar Diapositiva 2:</strong> Preguntas guía del Stand-up: "¿Qué tarea empezamos (la que está en 'Haciendo')?", "¿Algún bloque Scratch interesante que crean necesitar?", "¿Qué haremos hoy para avanzar?"). Mostrar visual del Kanban.
+                            </td>
+                            <td>
+                                "¡Ronda rápida! Cada equipo, mirando su Kanban, cuéntennos brevemente:"
+                                <ul>
+                                    <li>"¿Qué tarea es la que movieron a 'Haciendo' al final de la sesión pasada? ¡Esa es su misión inicial hoy!"</li>
+                                    <li>"¿Han pensado en algún bloque o idea de Scratch específica para esa tarea? ¿Algo que les parezca interesante o un desafío?"</li>
+                                    <li>"¿Cuál es su pequeño plan para hoy? ¿Qué esperan lograr en estos 30 minutos de programación?"</li>
+                                </ul>
+                                <em>(Dar la palabra a cada equipo, asegurando que sea breve y enfocado en la tarea actual. Fomentar la claridad sobre el objetivo inmediato).</em>
+                                <br><br>
+                                "¡Excelente! ¡Todos claros con su primer paso! ¡Es hora de programar!"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad 2: ¡A Programar! Construcción y Flujo Scratch -->
+        <div id="activity-2" class="activity">
+             <div class="banner" onclick="toggleContent('activity_2_content')">
+                 <div class="title">💻 Actividad 2: ¡A Programar! Construcción y Flujo Scratch ⏰ Tiempo: 30 minutos</div>
+             </div>
+            <div id="activity_2_content" class="content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Acción</th>
+                            <th style="width: 50%;">Diálogo del Maestro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Paso 1 (30 min - Bloque Principal):</strong> Los equipos trabajan en sus dispositivos. El facilitador circula activamente.
+                                - **Programador/a Scratch:** Implementa la tarea que está en "Haciendo".
+                                - **Tester Creativo/a:** Observa, prepara cómo probará la funcionalidad, y cuando el programador/a tenga algo listo, lo prueba continuamente. Da feedback claro y constructivo.
+                                - **Arquitecto/a Digital:** Mantiene la visión del PFB, ayuda a resolver dudas (conceptuales o de flujo), gestiona el Kanban (ver Paso 2).
+                                (<strong>Proyectar Diapositiva 3:</strong> Recordatorio visual de los roles y sus interacciones clave: Programador ↔️ Tester (Código y Feedback), Arquitecto ↔️ Equipo (Dudas y Visión), Equipo → Kanban).
+                            </td>
+                            <td>
+                                "¡Adelante, equipos! ¡Manos al Scratch! Tienen 30 minutos para trabajar en esa primera tarea."
+                                <br><br>
+                                "<strong>Programadores/as:</strong> ¡A codificar esa funcionalidad! Concéntrense en la tarea de la columna 'Haciendo'."
+                                <br><br>
+                                "<strong>Testers Creativos/as:</strong> ¡Sus ojos de lince listos! Prepárense para probar lo que haga su compañero/a. Pregunten: ¿Funciona como definimos en el PFB? ¿Hace lo que dice la tarea? ¿Encuentran algún 'bug' (error)? ¡Den feedback claro!"
+                                <br><br>
+                                "<strong>Arquitectos/as Digitales:</strong> ¡Mantengan el rumbo! Asegúrense de que vamos hacia nuestro PFB. Ayuden a resolver dudas y prepárense para mover las tareas en el Kanban."
+                                <br><br>
+                                <em>(Circular constantemente. Ofrecer soporte técnico bajo demanda: "¿Necesitan ayuda con algún bloque?", "¿Cómo podríamos hacer que el personaje salte?", etc. Observar la dinámica de los roles y fomentarla si es necesario: "¿Tester, ya viste lo que programó [Nombre]? ¿Qué opinas?", "¿Arquitecto, esta parte se alinea con el PFB?").</em>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Paso 2 (Integrado en los 30 min):</strong> Gestión del Flujo Kanban.
+                                - Cuando el Programador/a cree que ha completado la funcionalidad básica de la tarea actual, avisa al Arquitecto/a.
+                                - El Arquitecto/a (después de una posible validación rápida con el Tester) mueve la tarea de "Haciendo (⚙️)" a una nueva columna (o estado) "Listo para Probar (🔬)". *Nota: Si no se crea columna nueva, se puede marcar la tarjeta/post-it.*
+                                - El Tester realiza una prueba más formal.
+                                (<strong>Proyectar Diapositiva 4:</strong> Flujo Kanban actualizado. Mostrar Kanban con 'Por Hacer', 'Haciendo', y 'Listo para Probar (🔬)'. Flecha: Haciendo → Listo para Probar (Movido por Arquitecto/a)).
+                            </td>
+                            <td>
+                                <em>(Mientras circula, guiar este flujo cuando ocurra):</em>
+                                <br>
+                                "¡Atención, equipos! Cuando el <strong>Programador/a</strong> sienta que ha terminado lo esencial de la tarea en 'Haciendo', avisa al <strong>Arquitecto/a</strong>."
+                                <br><br>
+                                "<strong>Arquitecto/a</strong>, si parece que está listo para una revisión más a fondo, ¡mueve esa tarea a 'Listo para Probar (🔬)'!" <em>(O indica marcarla como lista para probar).</em>
+                                <br><br>
+                                "<strong>Tester</strong>, ¡ahora es tu momento estelar! Cuando una tarea esté en 'Listo para Probar', haz tus pruebas más completas. ¿Cumple todo? Si encuentras algo, ¡dale feedback al Programador/a!"
+                                <br><br>
+                                "¡Este flujo nos ayuda a asegurarnos de que cada pieza funciona bien antes de seguir avanzando!"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad 3: ¡Pausa y Mira! Cierre Rápido -->
+        <div id="activity-3" class="activity">
+            <div class="banner" onclick="toggleContent('activity_3_content')">
+                <div class="title">⏱️ Actividad 3: ¡Pausa y Mira! Cierre Rápido ⏰ Tiempo: 5 minutos</div>
+            </div>
+            <div id="activity_3_content" class="content">
+                 <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">Acción</th>
+                            <th style="width: 50%;">Diálogo del Maestro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Paso 1 (3 min):</strong> Pedir a los equipos que actualicen su Kanban al estado real en que quedaron las tareas.
+                            </td>
+                            <td>
+                                "¡Tiempo, equipos! ¡Pausa en la programación! Antes de terminar, vamos a asegurarnos de que nuestro Kanban refleje la realidad."
+                                <br><br>
+                                "Miren sus tareas. ¿Dónde están realmente? ¿Siguen en 'Haciendo'? ¿Alguna llegó a 'Listo para Probar'? Asegúrense de que las tarjetas estén en la columna correcta."
+                                <br><br>
+                                <em>(Dar 1-2 minutos para que actualicen el Kanban).</em>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Paso 2 (2 min):</strong> Breve puesta en común opcional y cierre de sesión.
+                                (<strong>Proyectar Diapositiva 5:</strong> Mensaje de Cierre "¡Gran Avance! Próxima Sesión: ¡Pruebas y Píxeles!" y quizás un espacio para destacar un bloque).
+                            </td>
+                            <td>
+                                "¡Fantástico trabajo hoy! Han empezado a construir el corazón de su proyecto."
+                                <br><br>
+                                <em>(Opcional, si el tiempo lo permite y algún equipo quiere compartir):</em> "¿Alguien quiere mostrar rapidísimo algún bloque nuevo o interesante que usó hoy?"
+                                <br><br>
+                                "¡Recuerden guardar su proyecto en Scratch! Importantísimo." <em>(Si aplica, dar instrucciones específicas de guardado/nombre).</em>
+                                <br><br>
+                                "En la próxima sesión, nos convertiremos en 'Caza-Bugs' 🐞 y nos aseguraremos de que todo funcione perfectamente. ¡Prepárense para las pruebas!"
+                                <br><br>
+                                "¡Nos vemos en la Sesión 3!"
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div> <!-- Fin del container -->
+</body>
+</html>
