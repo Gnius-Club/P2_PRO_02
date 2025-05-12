@@ -14,12 +14,21 @@
             color: white;
             padding: 10px;
             cursor: pointer;
-            margin-bottom: 10px;
+            margin-bottom: 10px; /* Adjusted for spacing */
             font-weight: bold;
             list-style: none;
             display: block;
+            border-radius: 5px; /* Rounded corners for banner */
         }
-        .content { display: none; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
+        .content { 
+            display: none; 
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            margin-bottom: 10px; 
+            border-radius: 5px; /* Rounded corners for content */
+            margin-top: -10px; /* Visual connection with banner */
+            padding-top: 20px; /* Avoid text clash */
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -43,13 +52,16 @@
         }
         .time-title { margin-bottom: 20px; text-align: center; font-size: 1.2em; color: #555;}
 
-        summary {
-           display: block;
-           list-style: none;
+        /* Making facilitator instructions clearer */
+        td em, td i { /* Style for italicized facilitator notes */
+            color: #555;
+            font-style: italic;
+            display: block; /* Put notes on new lines */
+            margin-top: 5px;
         }
-        summary::-webkit-details-marker {
-           display: none;
-        }
+        /* Ensure step <strong> tags render bold */
+        td strong { font-weight: bold; } /* General strong for keywords */
+        td > strong { display: block; margin-bottom: 5px; } /* For step headers */
 
     </style>
     <script>
@@ -69,6 +81,11 @@
             contents.forEach(content => {
                 content.style.display = 'none';
             });
+            // Open "Resumen de Sesión" by default
+            const resumenContent = document.getElementById('activity_0_content');
+            if (resumenContent) {
+                resumenContent.style.display = 'block';
+            }
         };
     </script>
 </head>
@@ -84,7 +101,7 @@
             <div class="banner" onclick="toggleContent('activity_0_content')">
                 <div class="title">📝 Resumen de Sesión</div>
             </div>
-            <div id="activity_0_content" class="content">
+            <div id="activity_0_content" class="content" style="display: block;"> {/* Open by default */}
                 <table>
                     <tr>
                         <td style="width: 50%; padding: 10px; border-right: 1px solid #ddd;">
@@ -134,8 +151,11 @@
                     <tbody>
                         <tr>
                             <td>
-                                <strong>Paso 1 (1 min):</strong> Reunir a los equipos frente a sus tableros Kanban.
-                                (<strong>Proyectar Diapositiva 1:</strong> Título "Sesión 2: ¡Manos al Scratch!" y Objetivo del día).
+                                <strong>Paso 1 (1 min):</strong>
+                                <ul>
+                                    <li>Reunir a los equipos frente a sus tableros Kanban.</li>
+                                    <li><strong>Proyectar Diapositiva 1</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Buenos días, equipos de programadores! ¡Hoy es el día de darle vida a esas ideas en Scratch! Vamos a empezar con nuestro 'Stand-up Técnico' rápido frente a sus tableros Kanban."
@@ -143,8 +163,11 @@
                         </tr>
                         <tr>
                             <td>
-                                <strong>Paso 2 (4 min):</strong> Guiar el stand-up. Cada equipo (puede hablar el Arquitecto/a o todos brevemente) comparte frente a su Kanban.
-                                (<strong>Proyectar Diapositiva 2:</strong> Preguntas guía del Stand-up: "¿Qué tarea empezamos (la que está en 'Haciendo')?", "¿Algún bloque Scratch interesante que crean necesitar?", "¿Qué haremos hoy para avanzar?"). Mostrar visual del Kanban.
+                                <strong>Paso 2 (4 min):</strong>
+                                <ul>
+                                    <li>Guiar el stand-up. Cada equipo comparte frente a su Kanban.</li>
+                                    <li><strong>Proyectar Diapositiva 2</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Ronda rápida! Cada equipo, mirando su Kanban, cuéntennos brevemente:"
@@ -179,11 +202,14 @@
                     <tbody>
                         <tr>
                             <td>
-                                <strong>Paso 1 (30 min - Bloque Principal):</strong> Los equipos trabajan en sus dispositivos. El facilitador circula activamente.
-                                - **Programador/a Scratch:** Implementa la tarea que está en "Haciendo".
-                                - **Tester Creativo/a:** Observa, prepara cómo probará la funcionalidad, y cuando el programador/a tenga algo listo, lo prueba continuamente. Da feedback claro y constructivo.
-                                - **Arquitecto/a Digital:** Mantiene la visión del PFB, ayuda a resolver dudas (conceptuales o de flujo), gestiona el Kanban (ver Paso 2).
-                                (<strong>Proyectar Diapositiva 3:</strong> Recordatorio visual de los roles y sus interacciones clave: Programador ↔️ Tester (Código y Feedback), Arquitecto ↔️ Equipo (Dudas y Visión), Equipo → Kanban).
+                                <strong>Paso 1 (30 min - Bloque Principal):</strong>
+                                <ul>
+                                    <li>Los equipos trabajan en sus dispositivos. El facilitador circula activamente.</li>
+                                    <li><strong>Programador/a Scratch:</strong> Implementa la tarea que está en "Haciendo".</li>
+                                    <li><strong>Tester Creativo/a:</strong> Observa, prepara cómo probará la funcionalidad, y cuando el programador/a tenga algo listo, lo prueba continuamente. Da feedback claro y constructivo.</li>
+                                    <li><strong>Arquitecto/a Digital:</strong> Mantiene la visión del PFB, ayuda a resolver dudas (conceptuales o de flujo), gestiona el Kanban (ver Paso 2).</li>
+                                    <li><strong>Proyectar Diapositiva 3</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Adelante, equipos! ¡Manos al Scratch! Tienen 30 minutos para trabajar en esa primera tarea."
@@ -199,11 +225,14 @@
                         </tr>
                         <tr>
                             <td>
-                                <strong>Paso 2 (Integrado en los 30 min):</strong> Gestión del Flujo Kanban.
-                                - Cuando el Programador/a cree que ha completado la funcionalidad básica de la tarea actual, avisa al Arquitecto/a.
-                                - El Arquitecto/a (después de una posible validación rápida con el Tester) mueve la tarea de "Haciendo (⚙️)" a una nueva columna (o estado) "Listo para Probar (🔬)". *Nota: Si no se crea columna nueva, se puede marcar la tarjeta/post-it.*
-                                - El Tester realiza una prueba más formal.
-                                (<strong>Proyectar Diapositiva 4:</strong> Flujo Kanban actualizado. Mostrar Kanban con 'Por Hacer', 'Haciendo', y 'Listo para Probar (🔬)'. Flecha: Haciendo → Listo para Probar (Movido por Arquitecto/a)).
+                                <strong>Paso 2 (Integrado en los 30 min):</strong>
+                                <ul>
+                                    <li>Gestión del Flujo Kanban.</li>
+                                    <li>Cuando el Programador/a cree que ha completado la funcionalidad básica de la tarea actual, avisa al Arquitecto/a.</li>
+                                    <li>El Arquitecto/a mueve la tarea de "Haciendo (⚙️)" a "Listo para Probar (🔬)".</li>
+                                    <li>El Tester realiza una prueba más formal.</li>
+                                    <li><strong>Proyectar Diapositiva 4</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 <em>(Mientras circula, guiar este flujo cuando ocurra):</em>
@@ -238,7 +267,10 @@
                     <tbody>
                         <tr>
                             <td>
-                                <strong>Paso 1 (3 min):</strong> Pedir a los equipos que actualicen su Kanban al estado real en que quedaron las tareas.
+                                <strong>Paso 1 (3 min):</strong>
+                                <ul>
+                                    <li>Pedir a los equipos que actualicen su Kanban al estado real en que quedaron las tareas.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Tiempo, equipos! ¡Pausa en la programación! Antes de terminar, vamos a asegurarnos de que nuestro Kanban refleje la realidad."
@@ -250,8 +282,11 @@
                         </tr>
                         <tr>
                             <td>
-                                <strong>Paso 2 (2 min):</strong> Breve puesta en común opcional y cierre de sesión.
-                                (<strong>Proyectar Diapositiva 5:</strong> Mensaje de Cierre "¡Gran Avance! Próxima Sesión: ¡Pruebas y Píxeles!" y quizás un espacio para destacar un bloque).
+                                <strong>Paso 2 (2 min):</strong>
+                                <ul>
+                                    <li>Breve puesta en común opcional y cierre de sesión.</li>
+                                    <li><strong>Proyectar Diapositiva 5</strong>.</li>
+                                </ul>
                             </td>
                             <td>
                                 "¡Fantástico trabajo hoy! Han empezado a construir el corazón de su proyecto."
